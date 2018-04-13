@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html  ng-app="myapp" >
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>聊天互動</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/angular.min.js"></script>
+		<script src="js/control.js"></script>
+	</head>
+	<body ng-controller="myctrl" >
+		<div class="panel panel-primary">
+
+	    <div class="panel-heading">
+	        <h3 class="panel-title">通訊工具</h3>
+	    </div>
+
+	    <div class="panel-body" style="height:80vh;" >
+	    	<div class="container">
+	    	  <div class="row">
+	   		    <div   class="col-sm-12 col-xs-12 ">
+	   		       <span type="text"></span>
+	        		<div class="reply"  ng-repeat="reply in replies">
+	                 	<p class="replycontent">{{reply.name}}:{{reply.content}}</p>
+	               </div>
+	           </div>
+	         </div>
+	  	 </div>
+	   </div>
+
+	   	<div  class=" container "  >
+			 <div class="row">
+
+			 	<div class="col-md-2 col-sm-2 col-xs-2">
+				 	<div class="form-group" style="padding: 0;">
+				 		<select class="form-control" ng-model="selectedSite" ng-options="x.site for x in sites">
+	          </select>
+				 	</div>
+			 	</div>
+
+				<div class="col-md-8 col-sm-8 col-xs-8"  >
+					<div class="input-group">
+	        	<input type="text" class="form-control"   id="tijiaoText" ng-model="inputText" >
+					</div>
+				</div>
+
+				<div class="col-md-2 col-sm-2 col-xs-2" >
+					<span class="input-group-btn" >
+		         <button class="btn btn-success" type="button" ng-click="submit()"> Send</button>
+						 <button class="btn btn-info" type="button" ng-click="refresh()">Refresh</button>
+	        </span>
+				</div>
+
+			</div>
+	 	</div>
+	</body>
+</html>
